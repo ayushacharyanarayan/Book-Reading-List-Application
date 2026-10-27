@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Reading List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Book Reading List</h1>
+      <p class="muted">Add books, track your reading status and stay organized.</p>
+    </header>
+
+    <!-- Summary counts -->
+    <section class="summary" aria-label="Summary">
+      <div class="stat"><span id="count-total">0</span><small>Total</small></div>
+      <div class="stat"><span id="count-to-read">0</span><small>To Read</small></div>
+      <div class="stat"><span id="count-reading">0</span><small>Reading</small></div>
+      <div class="stat"><span id="count-finished">0</span><small>Finished</small></div>
+    </section>
+
+    <!-- Add book form -->
+    <form id="book-form" class="panel" autocomplete="off">
+      <h2>Add a book</h2>
+      <div class="form-row">
+        <input id="title" type="text" placeholder="Book title" maxlength="100" required>
+        <input id="author" type="text" placeholder="Author" maxlength="80" required>
+        <select id="status" aria-label="Reading status">
+          <option value="To Read">To Read</option>
+          <option value="Reading">Reading</option>
+          <option value="Finished">Finished</option>
+        </select>
+        <button type="submit" class="btn primary">Add Book</button>
+      </div>
+      <p id="form-error" class="error" aria-live="polite"></p>
+    </form>
+
+    <!-- Filters -->
+    <nav class="filters" aria-label="Filter books">
+      <button class="filter active" data-filter="All">All</button>
+      <button class="filter" data-filter="To Read">To Read</button>
+      <button class="filter" data-filter="Reading">Reading</button>
+      <button class="filter" data-filter="Finished">Finished</button>
+    </nav>
+
+    <!-- Book list -->
+    <ul id="book-list" class="book-list"></ul>
+    <p id="empty-message" class="muted center hidden">No books to show here yet.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
